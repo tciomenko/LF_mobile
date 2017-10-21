@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+
+    xmlns:cv="clr-namespace:Xamarin.Forms;assembly=Xamarin.Forms.CarouselView" 
+    xmlns:containers="clr-namespace:LF_mobile.Containers;assembly=LF_mobile" 
+    xmlns:custom="clr-namespace:LF_mobile.CustomElement;assembly=LF_mobile" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    x:Class="LF_mobile.ReportageFullImage" 
+    BackgroundColor="Black" >
+	<ContentPage.Content>
+	<cv:CarouselView x:Name="imgList" ItemsSource="{Binding}" HeightRequest="200" >
+    <cv:CarouselView.ItemTemplate>
+      <DataTemplate>
+        <Grid>
+          <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+          </Grid.RowDefinitions>
+         <!--<containers:PanContainer>
+            <containers:PinchToZoomContainer >
+                <containers:PinchToZoomContainer.Content> --> 
+                   <custom:CarouselImageView />     
+                   <!-- <ffimageloading:CachedImage Grid.RowSpan="2"
+                      HorizontalOptions="FillAndExpand"
+                      Aspect="AspectFit"
+                      DownsampleWidth="200"
+                      DownsampleToViewSize="true"
+                      LoadingPlaceholder = "photoloading.png"
+                      CacheDuration = "30" FadeAnimationEnabled="false"
+                      RetryCount="5"
+                      RetryDelay="1000"
+                      Source = "{Binding img}">
+                    </ffimageloading:CachedImage>-->
+
+                <!--</containers:PinchToZoomContainer.Content>
+            </containers:PinchToZoomContainer>
+           </containers:PanContainer>-->
+          
+      <!--    <StackLayout Grid.Row="1" BackgroundColor="#80000000" Padding="12">
+            <Label TextColor="White" Text="{Binding name}" FontSize="16" HorizontalOptions="Center" VerticalOptions="CenterAndExpand"/>
+          </StackLayout>-->
+        </Grid>
+      </DataTemplate>
+    </cv:CarouselView.ItemTemplate>
+  </cv:CarouselView>
+	</ContentPage.Content>
+</ContentPage>

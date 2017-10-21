@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<pages:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:pages="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+             xmlns:animations="clr-namespace:Rg.Plugins.Popup.Animations;assembly=Rg.Plugins.Popup"
+             xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms"
+             x:Class="LF_mobile.Forms.PopupAbout">
+  <pages:PopupPage.Animation>
+    <animations:ScaleAnimation
+      PositionIn="Center"
+      PositionOut="Center"
+      ScaleIn="1.2"
+      ScaleOut="0.8"
+      DurationIn="400"
+      DurationOut="300"
+      EasingIn="SinOut"
+      EasingOut="SinIn"
+      HasBackgroundAnimation="True"/>
+  </pages:PopupPage.Animation>
+
+  <StackLayout VerticalOptions="Center" HorizontalOptions="FillAndExpand" Padding="20, 20, 20, 20">
+    <StackLayout BackgroundColor="White" Padding="0, 10, 0, 0">
+      <Label Text="О НАС" x:Name="TextLabel" FontFamily="Ubuntu" TextColor="Gray" FontSize="15" HorizontalOptions="Center"></Label>
+      <Label Text="Адрес: г. Находка, ул. Шоссейная, 37 А 2 этаж&#x0a;Телефон: +7 (4236) 77-66-33&#x0a;Время работы: Ежедневно  с 09:00 до 22:00 (без обеда)&#x0a;Наш сайт: LifeShopping.ru&#x0a;Наш E-Mail: ra.magnit@mail.ru&#x0a;&#x0a;" x:Name="TextTXT" FontFamily="Ubuntu" TextColor="Black" FontSize="13" HorizontalOptions="Center"></Label>
+    </StackLayout>
+  </StackLayout>
+
+</pages:PopupPage>

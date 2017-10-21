@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<resources>
+  <style name="MyTheme" parent="@android:style/Theme.Holo">
+    <item name="android:actionBarTabBarStyle">@style/MyActionBarTab</item>
+    <item name="android:actionBarTabTextStyle">@style/MyActionBarTabText</item>
+  </style>
+
+  <style name="MyActionBarTabText" parent="@android:style/Widget.Holo.ActionBar.TabText">
+    <item name="android:textColor">#ffffff</item>
+  </style>
+  <style name="MyActionBarTab" parent="@android:style/Widget.Holo.ActionBar.TabText">
+    <item name="android:background">#000</item>
+    <item name="android:backgroundStacked">#f15454</item>
+  </style>
+
+
+  <style name="Theme.Splash"
+    parent="android:Theme">
+    <item name="android:windowBackground">
+      @drawable/splashscreen
+    </item>
+    <item name="android:windowNoTitle">true</item>
+    <item name="android:windowIsTranslucent">false</item>
+    <item name="android:windowIsFloating">false</item>
+    <item name="android:backgroundDimEnabled">true</item>
+  </style>
+
+
+</resources>

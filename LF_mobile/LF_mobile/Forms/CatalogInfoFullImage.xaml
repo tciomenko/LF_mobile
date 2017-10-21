@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:ffimageloading="clr-namespace:FFImageLoading.Forms;assembly=FFImageLoading.Forms" 
+    xmlns:cv="clr-namespace:Xamarin.Forms;assembly=Xamarin.Forms.CarouselView" 
+    xmlns:containers="clr-namespace:LF_mobile.Containers;assembly=LF_mobile"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    x:Class="LF_mobile.CatalogInfoFullImage"
+    BackgroundColor="Black" >
+    <ContentPage.Content>
+		  <cv:CarouselView x:Name="imgList" ItemsSource="{Binding}" HeightRequest="200">
+    <cv:CarouselView.ItemTemplate>
+      <DataTemplate>
+        <Grid>
+          <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+          </Grid.RowDefinitions>
+           <containers:PanContainer>           
+                <ffimageloading:CachedImage Grid.RowSpan="2"
+                  HorizontalOptions="FillAndExpand"
+                  Aspect="AspectFit"
+                  HeightRequest="200"
+                  DownsampleWidth="200"
+                  DownsampleToViewSize="true"
+                  LoadingPlaceholder = "photoloading.png"
+                   CacheDuration = "30" FadeAnimationEnabled="false"
+                  RetryCount="5"
+                  RetryDelay="1000"
+                  Source = "{Binding img}">
+                </ffimageloading:CachedImage>
+           </containers:PanContainer>               
+          <StackLayout Grid.Row="1" BackgroundColor="#80000000" Padding="12">
+            <Label TextColor="White" Text="{Binding name}" FontSize="16" HorizontalOptions="Center" VerticalOptions="CenterAndExpand"/>
+          </StackLayout>
+        </Grid>
+      </DataTemplate>
+    </cv:CarouselView.ItemTemplate>
+  </cv:CarouselView>
+	</ContentPage.Content>
+</ContentPage>

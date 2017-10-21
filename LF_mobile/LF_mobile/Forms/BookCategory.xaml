@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+              xmlns:primitives="clr-namespace:Telerik.XamarinForms.Primitives;assembly=Telerik.XamarinForms.Primitives"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="LF_mobile.Forms.BookCategory">
+ <ContentPage.ToolbarItems>
+    <ToolbarItem Clicked="BtnMenu" Priority="0" Order="Primary">
+      <ToolbarItem.Icon>
+        <OnPlatform x:TypeArguments="FileImageSource"
+                    iOS="menu.png"
+                    Android="menu.png" />
+      </ToolbarItem.Icon>
+    </ToolbarItem>
+  </ContentPage.ToolbarItems>
+  <primitives:RadSideDrawer x:Name="SlideMenu">
+    <primitives:RadSideDrawer.DrawerLength>
+      <OnPlatform x:TypeArguments="x:Double" iOS="300" Android="300"/>
+    </primitives:RadSideDrawer.DrawerLength>
+    <primitives:RadSideDrawer.MainContent>
+
+          <ListView x:Name="BookCategoryList"  ItemSelected="BookCategorySelected"  HasUnevenRows = "true" BackgroundColor="White">
+            <ListView.ItemTemplate>
+              <DataTemplate>
+                <ViewCell>
+                  <ViewCell.View>
+                    <StackLayout Padding="20, 20, 20, 20">
+                    <Grid>
+                      <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="Auto"/>
+                        <ColumnDefinition Width="10"/>
+                        <ColumnDefinition Width="*"/>
+                      </Grid.ColumnDefinitions>
+                      <Label Grid.Column="0" Text="&#xf054;" XAlign="Start" YAlign="Center" x:Name="LabelNameHead" TextColor="#41b0fc" FontFamily="FontAwesome"/>
+                      <Label Grid.Column="2" Text="{Binding name}" XAlign="Start" YAlign="Center"  LineBreakMode="WordWrap" x:Name="LabelDescription" TextColor="Black" Font="12" />
+                    </Grid>
+                  </StackLayout>
+                  </ViewCell.View>
+                </ViewCell>
+              </DataTemplate>
+            </ListView.ItemTemplate>
+          </ListView>
+       
+    </primitives:RadSideDrawer.MainContent>
+    <primitives:RadSideDrawer.DrawerContent>
+      <StackLayout Orientation="Vertical" BackgroundColor="White">
+        <Grid>
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="40"/>
+            <ColumnDefinition Width="*"/>
+          </Grid.ColumnDefinitions>
+          <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition  Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="40"/>
+          </Grid.RowDefinitions>
+
+
+          <Label Grid.Row="0" Grid.Column="0" XAlign="Center" YAlign="Center" Font="13" Text="&#xf2bd;" TextColor="#676767" FontSize="13" FontFamily="FontAwesome"/>
+          <Label Grid.Row="0" Grid.Column="1" YAlign="Center" x:Name="menuLabelUser" Text="Вход"  TextColor="Black" Font="Bold,13">
+            <Label.GestureRecognizers>
+              <TapGestureRecognizer Tapped="MenuClickLogin" NumberOfTapsRequired="1" />
+            </Label.GestureRecognizers>
+          </Label>
+
+          <Label Grid.Row="1" Grid.Column="0" XAlign="Center" YAlign="Center" Text="&#xf291;" TextColor="#676767" FontSize="13" FontFamily="FontAwesome"/>
+          <Label Grid.Row="1" Grid.Column="1" YAlign="Center" Text="Каталог" TextColor="Black" Font="Bold,13">
+            <Label.GestureRecognizers>
+              <TapGestureRecognizer Tapped="MenuClickCatalog" NumberOfTapsRequired="1" />
+            </Label.GestureRecognizers>
+          </Label>
+
+          <Label Grid.Row="2" Grid.Column="0" XAlign="Center" YAlign="Center" Text="&#xf0ce;" TextColor="#676767" FontSize="13" FontFamily="FontAwesome"/>
+          <Label Grid.Row="2" Grid.Column="1" YAlign="Center" Text="Анонсы" TextColor="Black" Font="Bold,13">
+            <Label.GestureRecognizers>
+              <TapGestureRecognizer Tapped="MenuClickPreview" NumberOfTapsRequired="1" />
+            </Label.GestureRecognizers>
+          </Label>
+
+          <Label Grid.Row="3" Grid.Column="0" XAlign="Center" YAlign="Center" Text="&#xf09e;" TextColor="#676767" FontSize="13" FontFamily="FontAwesome"/>
+          <Label Grid.Row="3" Grid.Column="1" YAlign="Center" Text="Фотоотчеты" TextColor="Black" Font="Bold,13">
+            <Label.GestureRecognizers>
+              <TapGestureRecognizer Tapped="MenuClickReportage" NumberOfTapsRequired="1" />
+            </Label.GestureRecognizers>
+          </Label>
+
+          <Label Grid.Row="4" Grid.Column="0" XAlign="Center" YAlign="Center" Text="&#xf1ea;" TextColor="#676767" FontSize="13" FontFamily="FontAwesome"/>
+          <Label Grid.Row="4" Grid.Column="1" YAlign="Center" Text="Новости" TextColor="Black" Font="Bold,13">
+            <Label.GestureRecognizers>
+              <TapGestureRecognizer Tapped="MenuClickNews" NumberOfTapsRequired="1" />
+            </Label.GestureRecognizers>
+          </Label>
+
+          <Label Grid.Row="5" Grid.Column="0" XAlign="Center" YAlign="Center" Text="&#xf038;" TextColor="#676767" FontSize="13" FontFamily="FontAwesome"/>
+          <Label Grid.Row="5" Grid.Column="1" YAlign="Center" Text="Полезное" TextColor="Black" Font="Bold,13">
+            <Label.GestureRecognizers>
+              <TapGestureRecognizer Tapped="MenuClickBook" NumberOfTapsRequired="1" />
+            </Label.GestureRecognizers>
+          </Label>
+
+          <Label Grid.Row="6" Grid.Column="0" XAlign="Center" YAlign="Center" Text="&#xf1d7;" TextColor="#676767" FontSize="13" FontFamily="FontAwesome"/>
+          <Label Grid.Row="6" Grid.Column="1" YAlign="Center" Text="Форум" TextColor="Black" Font="Bold,13">
+            <Label.GestureRecognizers>
+              <TapGestureRecognizer Tapped="MenuClickForum" NumberOfTapsRequired="1" />
+            </Label.GestureRecognizers>
+          </Label>
+
+          <Label Grid.Row="7" Grid.Column="0" XAlign="Center" YAlign="Center" Text="&#xf05a;" TextColor="#676767" FontSize="13" FontFamily="FontAwesome"/>
+          <Label Grid.Row="7" Grid.Column="1" YAlign="Center" Text=" О нас" TextColor="Black" Font="Bold,13">
+            <Label.GestureRecognizers>
+              <TapGestureRecognizer Tapped="MenuClickAbout" NumberOfTapsRequired="1" />
+            </Label.GestureRecognizers>
+          </Label>
+        </Grid>
+      </StackLayout>
+    </primitives:RadSideDrawer.DrawerContent>
+  </primitives:RadSideDrawer>
+</ContentPage>
