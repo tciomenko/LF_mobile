@@ -30,6 +30,7 @@ namespace LF_mobile.Droid
 			UserDialogs.Init(this);
 			TelerikForms.Init();
 			FlowListView.Init();
+            ViewGesturesRenderer.Init();
             var width = Resources.DisplayMetrics.WidthPixels;
             var height = Resources.DisplayMetrics.HeightPixels;
             var density = Resources.DisplayMetrics.Density;

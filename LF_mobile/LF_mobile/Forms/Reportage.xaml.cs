@@ -56,16 +56,15 @@ namespace LF_mobile.Forms
 
         private async void loadContent()
         {
-            await Task.Run(
-async () =>
-{
-using (UserDialogs.Instance.Loading("Загрузка..."))
-{
-    await Task.Delay(500);
-    Device.BeginInvokeOnMainThread(
-                      () => LoadData());
-}
-});
+            await Task.Run(async () =>
+                            {
+                            using (UserDialogs.Instance.Loading("Загрузка..."))
+                            {
+                                await Task.Delay(500);
+                                Device.BeginInvokeOnMainThread(
+                                                  () => LoadData());
+                            }
+                            });
         }
 
         private void BtnMenu(object sender, EventArgs e)

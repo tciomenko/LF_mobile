@@ -7,6 +7,7 @@ using UIKit;
 using System.Net.Http;
 using DLToolkit.Forms.Controls;
 
+
 [assembly: Xamarin.Forms.ExportRenderer(typeof(Telerik.XamarinForms.Primitives.RadSideDrawer), typeof(Telerik.XamarinForms.PrimitivesRenderer.iOS.SideDrawerRenderer))]
 namespace LF_mobile.iOS
 {
@@ -26,17 +27,16 @@ namespace LF_mobile.iOS
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
 			new Telerik.XamarinForms.PrimitivesRenderer.iOS.SideDrawerRenderer();
-           Xamarin.Forms.Forms.Init();
+            Xamarin.Forms.Forms.Init();
 			TelerikForms.Init();
             LoadApplication(new App());
-
             
             Xamarin.FormsMaps.Init();
             CachedImageRenderer.Init();
             FlowListView.Init();
             UIApplication.SharedApplication.StatusBarHidden = true;
-            App.ScreenWidth = UIScreen.MainScreen.Bounds.Width/2;
-            App.ScreenHeight = UIScreen.MainScreen.Bounds.Height/2;
+            App.ScreenWidth = UIScreen.MainScreen.Bounds.Width;
+            App.ScreenHeight = UIScreen.MainScreen.Bounds.Height;
             var config = new Configuration
             {
                 HttpClient = new HttpClient(new ModernHttpClient.NativeMessageHandler()),  //используем быстрые библиотеки для загрузки 

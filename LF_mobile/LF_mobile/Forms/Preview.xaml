@@ -23,16 +23,16 @@
 
                   <StackLayout BackgroundColor="White">
                     <!--<Image  x:Name="ImgHead" Aspect="Fill" Source="{Binding img}"/>-->
-        <ffimageloading:CachedImage 
-        HorizontalOptions="FillAndExpand"                                     
-        Aspect="AspectFill"                 
-        DownsampleToViewSize="true"
-        LoadingPlaceholder = "photoloading.png"
-        CacheDuration = "30" FadeAnimationEnabled="false"
-        RetryCount="5"
-        RetryDelay="1000" 
-        Source = "{Binding img}">
-        </ffimageloading:CachedImage>
+                        <ffimageloading:CachedImage 
+                        HorizontalOptions="FillAndExpand"                                     
+                        Aspect="AspectFill"                 
+                        DownsampleToViewSize="true"
+                        LoadingPlaceholder = "photoloading.png"
+                        CacheDuration = "30" FadeAnimationEnabled="false"
+                        RetryCount="5"
+                        RetryDelay="1000" 
+                        Source = "{Binding img}">
+                        </ffimageloading:CachedImage>
                   <StackLayout Padding="20, 5, 20, 20">
                     <Grid>
                       <Grid.RowDefinitions>

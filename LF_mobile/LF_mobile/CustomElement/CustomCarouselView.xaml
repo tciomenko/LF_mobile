@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cv:CarouselView xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    xmlns:custom="clr-namespace:LF_mobile.CustomElement;assembly=LF_mobile"
+    xmlns:cv="clr-namespace:Xamarin.Forms;assembly=Xamarin.Forms.CarouselView" 
+    x:Class="LF_mobile.CustomElement.CustomCarouselView"
+    x:Name="imgList" ItemsSource="{Binding}" HeightRequest="200">
+    <cv:CarouselView.ItemTemplate>
+      <DataTemplate>
+        <Grid>
+          <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+          </Grid.RowDefinitions>
+                   <custom:CarouselImageView /> 
+                    <!--<ffimageloading:CachedImage Grid.RowSpan="2"
+                      HorizontalOptions="FillAndExpand"
+                      Aspect="AspectFit"
+                      DownsampleWidth="200"
+                      DownsampleToViewSize="true"
+                      LoadingPlaceholder = "photoloading.png"
+                      CacheDuration = "30" FadeAnimationEnabled="false"
+                      RetryCount="5"
+                      RetryDelay="1000"
+                      Source = "{Binding img}">
+                    </ffimageloading:CachedImage>-->
+      <!--    <StackLayout Grid.Row="1" BackgroundColor="#80000000" Padding="12">
+            <Label TextColor="White" Text="{Binding name}" FontSize="16" HorizontalOptions="Center" VerticalOptions="CenterAndExpand"/>
+          </StackLayout>-->
+        </Grid>
+      </DataTemplate>
+    </cv:CarouselView.ItemTemplate>
+</cv:CarouselView> 
+

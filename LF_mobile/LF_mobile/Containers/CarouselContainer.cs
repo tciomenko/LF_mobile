@@ -1,11 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using FFImageLoading.Forms;
 using Xamarin.Forms;
+using XLabs;
 
-namespace LF_mobile.CustomElement
+namespace LF_mobile.Containers
 {
-    public partial class CarouselImageView : CachedImage
+    public class CarouselContainer:ContentView
     {
         private const double MIN_SCALE = 1;
         private const double MAX_SCALE = 4;
@@ -13,11 +12,8 @@ namespace LF_mobile.CustomElement
         private double StartScale;
         private double LastX, LastY;
         private double StartX, StartY;
-
-
-        public CarouselImageView()
-        {   InitializeComponent();
-            
+        public CarouselContainer()
+        {
             var pinch = new PinchGestureRecognizer();
             pinch.PinchUpdated += OnPinchUpdated;
             GestureRecognizers.Add(pinch);
@@ -35,7 +31,6 @@ namespace LF_mobile.CustomElement
             AnchorX = AnchorY = 0;
             StartX = StartY = 0;
         }
-
         protected override SizeRequest OnMeasure(double widthConstraint, double heightConstraint)
         {
             Scale = MIN_SCALE;
