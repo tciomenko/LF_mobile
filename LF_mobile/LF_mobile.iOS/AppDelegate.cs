@@ -6,7 +6,7 @@ using Telerik.XamarinForms.Common.iOS;
 using UIKit;
 using System.Net.Http;
 using DLToolkit.Forms.Controls;
-
+using CarouselView.FormsPlugin.iOS;
 
 [assembly: Xamarin.Forms.ExportRenderer(typeof(Telerik.XamarinForms.Primitives.RadSideDrawer), typeof(Telerik.XamarinForms.PrimitivesRenderer.iOS.SideDrawerRenderer))]
 namespace LF_mobile.iOS
@@ -34,6 +34,7 @@ namespace LF_mobile.iOS
             Xamarin.FormsMaps.Init();
             CachedImageRenderer.Init();
             FlowListView.Init();
+            CarouselViewRenderer.Init();
             UIApplication.SharedApplication.StatusBarHidden = true;
             App.ScreenWidth = UIScreen.MainScreen.Bounds.Width;
             App.ScreenHeight = UIScreen.MainScreen.Bounds.Height;

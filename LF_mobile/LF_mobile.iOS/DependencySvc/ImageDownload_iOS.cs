@@ -6,33 +6,39 @@ using LF_mobile.iOS.DependencySvc;
 using LF_mobile.DependencySvc;
 using System.Net;
 using System.IO;
-
+using AssetsLibrary;
+using Foundation;
+using System.Threading.Tasks;
+using ImageIO;
 
 [assembly: Dependency(typeof(ImageDownload_iOS))]
 namespace LF_mobile.iOS.DependencySvc
 {
     public class ImageDownload_iOS:IImageDownload
     {
-        public ImageDownload_iOS()
+        public void SaveImageFromUrl(string url)
         {
+            var ns = new NSDictionary();
+            ALAssetsLibrary library = new ALAssetsLibrary();
+
+            var image = ImageDownload_iOS.NSDataFromUrl(url);
+
+            library.WriteImageToSavedPhotosAlbum(image, ns, (assetUrl, error) => {
+                    Console.WriteLine("assetUrl:" + assetUrl);
+                });
+
+
+
         }
-
-        public void SaveImageFromUrl()
+        static  UIImage FromUrl(string uri)
         {
-                var webClient = new WebClient();
-                webClient.DownloadDataCompleted += (s, e) => {
-                    var bytes = e.Result; // get the downloaded data
-                    string documentsPath = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
-                    string localFilename = "downloaded.png";
-                    string localPath = Path.Combine(documentsPath, localFilename);
-                    File.WriteAllBytes(localPath, bytes); // writes to local storage
+            using (var data = NSData.FromUrl(new Uri(uri)))
+                return  UIImage.LoadFromData(data);
+        }
+        static NSData NSDataFromUrl(string uri)
+        {
 
-
-                };
-                var url = new Uri("https://www.xamarin.com/content/images/pages/branding/assets/xamagon.png");
-                webClient.DownloadDataAsync(url);
-
-
-            }
+            return NSData.FromUrl(new Uri(uri));
+        }
         }
     }

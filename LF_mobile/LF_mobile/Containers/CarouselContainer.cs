@@ -7,20 +7,21 @@ namespace LF_mobile.Containers
     public class CarouselContainer:ContentView
     {
         private const double MIN_SCALE = 1;
-        private const double MAX_SCALE = 4;
+        private const double MAX_SCALE = 10;
         private const double OVERSHOOT = 0.15;
         private double StartScale;
         private double LastX, LastY;
         private double StartX, StartY;
         public CarouselContainer()
         {
+            var pan = new PanGestureRecognizer();
+            pan.PanUpdated += OnPanUpdated;
+            GestureRecognizers.Add(pan);
             var pinch = new PinchGestureRecognizer();
             pinch.PinchUpdated += OnPinchUpdated;
             GestureRecognizers.Add(pinch);
 
-            var pan = new PanGestureRecognizer();
-            pan.PanUpdated += OnPanUpdated;
-            GestureRecognizers.Add(pan);
+
 
             var tap = new TapGestureRecognizer { NumberOfTapsRequired = 2 };
             tap.Tapped += OnTapped;

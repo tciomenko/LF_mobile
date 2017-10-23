@@ -4,6 +4,7 @@
     xmlns:cv="clr-namespace:Xamarin.Forms;assembly=Xamarin.Forms.CarouselView" 
     xmlns:containers="clr-namespace:LF_mobile.Containers;assembly=LF_mobile" 
     xmlns:custom="clr-namespace:LF_mobile.CustomElement;assembly=LF_mobile" 
+    xmlns:controls="clr-namespace:CarouselView.FormsPlugin.Abstractions;assembly=CarouselView.FormsPlugin.Abstractions"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
     x:Class="LF_mobile.ReportageFullImage" 
     BackgroundColor="Black" >
@@ -17,8 +18,22 @@
         </ToolbarItem>
     </ContentPage.ToolbarItems>
 	<ContentPage.Content>
-       <containers:CarouselContainer>
-	<cv:CarouselView x:Name="imgList" ItemsSource="{Binding}">
+       <!--<containers:CarouselContainer>-->
+        <controls:CarouselViewControl x:Name="imgList" Position="0"  Orientation="Horizontal"
+            InterPageSpacing="100"  ItemsSource="{Binding}" 
+            VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" >
+            <controls:CarouselViewControl.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+          <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+          </Grid.RowDefinitions>
+                <custom:CarouselImageView/>
+                        </Grid>
+                </DataTemplate>
+            </controls:CarouselViewControl.ItemTemplate>
+            </controls:CarouselViewControl>
+<!--	<cv:CarouselView x:Name="imgList" ItemsSource="{Binding}"  HeightRequest="900">
     <cv:CarouselView.ItemTemplate>
       <DataTemplate>
        <Grid>
@@ -26,7 +41,18 @@
             <RowDefinition Height="Auto"/>
           </Grid.RowDefinitions>
           <custom:CarouselImageView/> 
-                    <!--<ffimageloading:CachedImage Grid.RowSpan="2"
+                 
+         
+       </Grid>
+      </DataTemplate>
+    </cv:CarouselView.ItemTemplate>
+  </cv:CarouselView>
+  </containers:CarouselContainer>-->
+
+            
+ </ContentPage.Content>
+</ContentPage>
+   <!--<ffimageloading:CachedImage Grid.RowSpan="2"
                       HorizontalOptions="FillAndExpand"
                       Aspect="AspectFit"
                       DownsampleWidth="200"
@@ -37,13 +63,3 @@
                       RetryDelay="1000"
                       Source = "{Binding img}">
                     </ffimageloading:CachedImage>-->
-         
-        </Grid>
-      </DataTemplate>
-    </cv:CarouselView.ItemTemplate>
-  </cv:CarouselView>
-  </containers:CarouselContainer>
-
-            
- </ContentPage.Content>
-</ContentPage>

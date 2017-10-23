@@ -64,8 +64,8 @@ Global
 		{4519B5CC-035F-4DD7-BF0A-ABA4D55D5790}.Ad-Hoc|Any CPU.ActiveCfg = Ad-Hoc|iPhone
 		{4519B5CC-035F-4DD7-BF0A-ABA4D55D5790}.Ad-Hoc|iPhone.ActiveCfg = Ad-Hoc|iPhone
 		{4519B5CC-035F-4DD7-BF0A-ABA4D55D5790}.Ad-Hoc|iPhone.Build.0 = Ad-Hoc|iPhone
-		{4519B5CC-035F-4DD7-BF0A-ABA4D55D5790}.Ad-Hoc|iPhoneSimulator.ActiveCfg = Ad-Hoc|iPhoneSimulator
-		{4519B5CC-035F-4DD7-BF0A-ABA4D55D5790}.Ad-Hoc|iPhoneSimulator.Build.0 = Ad-Hoc|iPhoneSimulator
+		{4519B5CC-035F-4DD7-BF0A-ABA4D55D5790}.Ad-Hoc|iPhoneSimulator.ActiveCfg = Ad-Hoc|iPhone
+		{4519B5CC-035F-4DD7-BF0A-ABA4D55D5790}.Ad-Hoc|iPhoneSimulator.Build.0 = Ad-Hoc|iPhone
 		{4519B5CC-035F-4DD7-BF0A-ABA4D55D5790}.AppStore|Any CPU.ActiveCfg = AppStore|iPhone
 		{4519B5CC-035F-4DD7-BF0A-ABA4D55D5790}.AppStore|iPhone.ActiveCfg = AppStore|iPhone
 		{4519B5CC-035F-4DD7-BF0A-ABA4D55D5790}.AppStore|iPhone.Build.0 = AppStore|iPhone
@@ -108,5 +108,17 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		Policies = $0
+		$0.DotNetNamingPolicy = $1
+		$1.DirectoryNamespaceAssociation = PrefixedHierarchical
+		$0.TextStylePolicy = $2
+		$2.inheritsSet = null
+		$2.scope = text/x-csharp
+		$0.CSharpFormattingPolicy = $3
+		$3.scope = text/x-csharp
+		$0.StandardHeader = $4
+		$0.VersionControlPolicy = $5
 	EndGlobalSection
 EndGlobal

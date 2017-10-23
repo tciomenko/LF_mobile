@@ -4,7 +4,11 @@ using System.Linq;
 using System.Threading.Tasks;
 using Acr.UserDialogs;
 using LF_mobile.DependencySvc;
+using Plugin.Media;
+using Plugin.Share;
+using Plugin.Share.Abstractions;
 using Xamarin.Forms;
+
 
 namespace LF_mobile
 {
@@ -19,14 +23,48 @@ namespace LF_mobile
 
         public async void BtnMenu(object sender, EventArgs e)
         {
-            string action=await DisplayActionSheet("Меню","Отмена","","Сохранить фото в галерею");
+            string action=await DisplayActionSheet(null,"Отмена",null,"Сохранить фото в галерею","Скопировать ссылку", "Поделиться");
 
 
             if(action== "Сохранить фото в галерею")
             {
                 string Url= imgList.ItemsSource.Cast<Model.ReportageImg>().ToList().GetRange(imgList.Position,1).First().img;
-                DependencyService.Get<IImageDownload>().SaveImageFromUrl();
+                DependencyService.Get<IImageDownload>().SaveImageFromUrl(Url);
+
+                //var file = await CrossMedia.Current.TakePhotoAsync(new Plugin.Media.Abstractions.StoreCameraMediaOptions
+                //{
+                //    Directory = "Sample",
+                //    Name = "test.jpg",
+                //    SaveToAlbum = true
+                //}); 
+
+            }
+            if(action=="Поделиться"){
                 
+                string Url = imgList.ItemsSource.Cast<Model.ReportageImg>().ToList().GetRange(imgList.Position, 1).First().img;
+                CrossShare.Current.Share(new ShareMessage
+                {
+                    Url=Url
+                },
+               new ShareOptions
+               {
+                   ChooserTitle = "Chooser Title",
+                    ExcludedUIActivityTypes = new[] { 
+                        ShareUIActivityType.AddToReadingList,
+                        ShareUIActivityType.AirDrop ,
+                        ShareUIActivityType.AssignToContact ,
+                        ShareUIActivityType.CopyToPasteboard ,
+                        ShareUIActivityType.Mail ,
+                        ShareUIActivityType.Message ,
+                        ShareUIActivityType.OpenInIBooks,
+                        ShareUIActivityType.PostToFacebook ,
+                        ShareUIActivityType.PostToFlickr ,
+                        ShareUIActivityType.PostToTencentWeibo ,
+                        ShareUIActivityType.Print,
+                        ShareUIActivityType.SaveToCameraRoll
+                    }
+               });
+
             }
         }
 

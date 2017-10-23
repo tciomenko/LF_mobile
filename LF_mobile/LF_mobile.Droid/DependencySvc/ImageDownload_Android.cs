@@ -13,19 +13,21 @@ namespace LF_mobile.iOS.DependencySvc
         {
         }
 
-        public async void SaveImageFromUrl()
+        public async void SaveImageFromUrl(string url)
         {
             
-                var webClient = new WebClient();
-                webClient.DownloadDataCompleted += (s, e) => {
-                    var bytes = e.Result; // get the downloaded data
-                    string documentsPath = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
-                    string localFilename = "downloaded.png";
-                    string localPath = Path.Combine(documentsPath, localFilename);
-                    File.WriteAllBytes(localPath, bytes); // writes to local storage
-                };
-                var url = new Uri("https://www.xamarin.com/content/images/pages/branding/assets/xamagon.png");
-                webClient.DownloadDataAsync(url);
+            //    var webClient = new WebClient();
+            //    webClient.DownloadDataCompleted += (s, e) => {
+            //        var bytes = e.Result; // get the downloaded data
+            //        string documentsPath = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
+            //        string localFilename = "downloaded.png";
+            //        string localPath = Path.Combine(documentsPath, localFilename);
+            //        File.WriteAllBytes(localPath, bytes); // writes to local storage
+            //    };
+            //    //var url = new Uri("https://www.xamarin.com/content/images/pages/branding/assets/xamagon.png");
+            //webClient.DownloadDataAsync(new Uri(url));
+
+
             }
         }
     }
